@@ -1,0 +1,25 @@
+# Server
+PORT=4000
+NODE_ENV=development
+CLIENT_ORIGIN=http://localhost:5173
+
+# Database
+DATABASE_URL=postgres://ca_ai_user:changeme@localhost:5432/ca_ai
+
+# Auth
+JWT_SECRET=replace-with-a-long-random-string
+JWT_EXPIRES_IN=7d
+BCRYPT_SALT_ROUNDS=12
+
+# File storage (local disk for dev; swap for S3/GCS in production)
+UPLOAD_DIR=./uploads
+MAX_UPLOAD_MB=15
+
+# Platform defaults (overridable at runtime via admin_settings table)
+DEFAULT_PLATFORM_COMMISSION_PERCENT=10
+
+# Credit-purchase webhook — set this to a long random string, and configure
+# your payment gateway (or a small relay you control) to send it as the
+# X-Webhook-Secret header when calling POST /api/credits/webhook. Never
+# expose this value to the frontend.
+PAYMENT_WEBHOOK_SECRET=replace-with-a-long-random-string
